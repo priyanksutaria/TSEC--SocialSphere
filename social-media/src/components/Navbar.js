@@ -9,8 +9,11 @@ import twitterLogo from "../assets/images/twitter.png";
 import instagramLogo from "../assets/images/instagram24.png";
 import linkedinLogo from "../assets/images/linkedin.png";
 
-const INSTAGRAM_CLIENT_ID = "604804838827231";
-const INSTAGRAM_REDIRECT_URI = "http://localhost:3000/auth/instagram"; // Change this in production
+const INSTAGRAM_CLIENT_ID = "912374694415209";
+const INSTAGRAM_REDIRECT_URI = "http://localhost:3000/dashboard"; // Change this in production
+
+const FACEBOOK_APP_ID = "912374694415209";
+const FACEBOOK_REDIRECT_URI = "http://localhost:3000/dashboard/dbfacebook"; // Change in production
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -18,12 +21,17 @@ const Navbar = () => {
 
   const handleClick = () => setClick(!click);
   const handleDropdownOpen = () => setDropdown(true);
-const handleDropdownClose = () => setDropdown(false);
+  const handleDropdownClose = () => setDropdown(false);
 
-const handleInstagramConnect = () => {
-  const instagramAuthUrl = `https://api.instagram.com/oauth/authorize?client_id=${INSTAGRAM_CLIENT_ID}&redirect_uri=${INSTAGRAM_REDIRECT_URI}&scope=user_profile,user_media&response_type=code`;
-  window.location.href = instagramAuthUrl; // Redirect to Instagram login
-};
+  const handleInstagramConnect = () => {
+    const instagramAuthUrl = `https://api.instagram.com/oauth/authorize?client_id=${INSTAGRAM_CLIENT_ID}&redirect_uri=${INSTAGRAM_REDIRECT_URI}&scope=user_profile,user_media&response_type=code`;
+    window.location.href = instagramAuthUrl; // Redirect to Instagram login
+  };
+
+  const handleFacebookConnect = () => {
+    const facebookAuthUrl = `https://www.facebook.com/v12.0/dialog/oauth?client_id=${FACEBOOK_APP_ID}&redirect_uri=${FACEBOOK_REDIRECT_URI}&scope=email,public_profile,pages_manage_posts,pages_read_engagement`;
+    window.location.href = facebookAuthUrl; // Redirect to Facebook login
+  };
 
   return (
     <>
@@ -66,7 +74,7 @@ const handleInstagramConnect = () => {
                   <li className="social-media-item">
                     <img src={facebookLogo} alt="Facebook" className="social-media-logo" />
                     <span className="social-media-name">Facebook</span>
-                    <button className="connect-button">Connect</button>
+                    <button className="connect-button" onClick={handleFacebookConnect}>Connect</button>
                   </li>
                   <li className="social-media-item">
                     <img src={twitterLogo} alt="Twitter" className="social-media-logo" />
@@ -76,12 +84,12 @@ const handleInstagramConnect = () => {
                   <li className="social-media-item">
                     <img src={instagramLogo} alt="Instagram" className="social-media-logo" />
                     <span className="social-media-name">Instagram</span>
-                    <button className="connect-button" onClick={handleInstagramConnect}>Connect</button>
+                    <button className="connect-button" disabled={true} onClick={handleInstagramConnect}>Connected</button>
                   </li>
                   <li className="social-media-item">
                     <img src={linkedinLogo} alt="LinkedIn" className="social-media-logo" />
                     <span className="social-media-name">LinkedIn</span>
-                    <button className="connect-button">Connect</button>
+                    <button className="connect-button" disabled={true}>Connected</button>
                   </li>
                 </ul>
               </li>

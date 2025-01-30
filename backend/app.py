@@ -17,7 +17,7 @@ os.makedirs("static", exist_ok=True)
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Load Stable Diffusion for image generation
-pipe = StableDiffusionPipeline.from_pretrained("./stable-diffusion-v1-4")
+pipe = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5")
 pipe.to(device)
 
 # Load GPT-2 for caption generation
@@ -40,7 +40,7 @@ def generate_post():
     try:
         # Generate image using Stable Diffusion
         image = pipe(description).images[0]
-        image_filename = f"generated_image_{description[:10].replace(' ', '_')}.png"
+        image_filename = f"generated_image_{int(time.time())}.png"
         image_path = os.path.join('static', image_filename)
         image.save(image_path)
 

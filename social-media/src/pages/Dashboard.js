@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Box, Drawer, CssBaseline, AppBar, Toolbar, List, Typography, Divider, ListItem, ListItemButton, ListItemIcon, ListItemText, Avatar, Paper, InputBase, IconButton, Badge, Collapse, Card, CardContent, CardActionArea, Grid, Menu, MenuItem } from '@mui/material';
-import { Home as HomeIcon, AccountCircle as AccountCircleIcon, Explore as ExploreIcon, DynamicFeed, AddComment, Notifications, Search, ExpandMore, ExpandLess, PostAdd, Settings } from '@mui/icons-material';
+import { Home as HomeIcon, AccountCircle as AccountCircleIcon, Explore as ExploreIcon, DynamicFeed, AddComment, Notifications, Search, ExpandMore, ExpandLess, PostAdd, Settings, Today, SmartToy, InsertEmoticon } from '@mui/icons-material';
 import { NavLink, Routes, Route, Outlet } from 'react-router-dom';
 import Logo from '../assets/images/SocialSphereLogo.png';
 import MyProfile from './Dashboard/Profile';
@@ -14,11 +14,12 @@ import LinkedInFeed from './Dashboard/DbLinkedIn';
 import AIPostGenerator from './Dashboard/DbAutomation';
 import InstagramConnect from './Dashboard/DbCreateIGPost';
 import InstagramAnalysis from './Dashboard/DbTrendAnalysis';
+import Chatbot from './Dashboard/ExploreCareers';
 
 const drawerWidth = 260;
 
 // Mock user data
-const user = { name: 'John Doe', username: 'johndoe', avatar: 'https://i.pravatar.cc/150?img=3' };
+const user = { name: 'Priyank Sutaria', username: 'priyank', avatar: 'https://i.pravatar.cc/150?img=3' };
 
 function Dashboard() {
   const [openSocialFeeds, setOpenSocialFeeds] = React.useState(true); // For Social Feeds collapsible menu
@@ -288,7 +289,7 @@ function Dashboard() {
           <ListItem disablePadding>
             <NavLink to="dbpostschedule" style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
               <ListItemButton sx={{ borderRadius: '8px', '&:hover': { backgroundColor: '#006c7f' } }}>
-                <ListItemIcon sx={{ color: 'white' }}><ExploreIcon /></ListItemIcon>
+                <ListItemIcon sx={{ color: 'white' }}><Today /></ListItemIcon>
                 <ListItemText primary="Post Scheduler" />
               </ListItemButton>
             </NavLink>
@@ -296,7 +297,7 @@ function Dashboard() {
           <ListItem disablePadding>
             <NavLink to="dbaiautomation" style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
               <ListItemButton sx={{ borderRadius: '8px', '&:hover': { backgroundColor: '#006c7f' } }}>
-                <ListItemIcon sx={{ color: 'white' }}><ExploreIcon /></ListItemIcon>
+                <ListItemIcon sx={{ color: 'white' }}><SmartToy /></ListItemIcon>
                 <ListItemText primary="AI Automated Posting" />
               </ListItemButton>
             </NavLink>
@@ -316,10 +317,10 @@ function Dashboard() {
         {/* Bottom Section */}
         <List>
           <ListItem disablePadding>
-            <NavLink to="explorecareers" style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
+            <NavLink to="dbchatbot" style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
               <ListItemButton sx={{ borderRadius: '8px', '&:hover': { backgroundColor: '#006c7f' } }}>
-                <ListItemIcon sx={{ color: 'white' }}><ExploreIcon /></ListItemIcon>
-                <ListItemText primary="Explore Careers" />
+                <ListItemIcon sx={{ color: 'white' }}><InsertEmoticon /></ListItemIcon>
+                <ListItemText primary="Personal Bot" />
               </ListItemButton>
             </NavLink>
           </ListItem>
@@ -374,6 +375,7 @@ function Dashboard() {
           <Route path='/dbpostschedule' element={<PostScheduler />} />
           <Route path='/dbaiautomation' element={<AIPostGenerator />} />
           <Route path='/dbtrend' element={<InstagramAnalysis />} />
+          <Route path='/dbchatbot' element={<Chatbot />} />
 
           <Route path='' element={<MyProfile />} />
         </Routes>

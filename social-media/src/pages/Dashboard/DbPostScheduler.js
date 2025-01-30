@@ -8,15 +8,22 @@ const PostScheduler = () => {
   const [postContent, setPostContent] = useState("");
   const [textIdea, setTextIdea] = useState("");
   const [mediaFile, setMediaFile] = useState(null);
+  const [imageurl, setimageurl] = useState("");
   const [tags, setTags] = useState("");
   const [timeZone, setTimeZone] = useState("UTC");
   const [recurring, setRecurring] = useState(false);
   const [frequency, setFrequency] = useState("once");
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
+    const [charCount, setCharCount] = useState(0);
 
   const timeSlots = Array.from({ length: 12 }, (_, i) => `${i + 9}:00 AM`).concat(
     Array.from({ length: 9 }, (_, i) => `${i + 1}:00 PM`)
   );
+
+  const accessToken = 'EAAM9zMmQC2kBO20lO9YQgdRBZCBcS5fkAsHK8xRQKNayHd3Hsn7iqh9ZA9p21bLrgdgyeB5FawHd7vcdnrhhSiRFhPiXuKaJ7e9XQBIdaijF4w04s7J77TOml9JgevkfJfNcU3hpOQZBJy9ZBf7nXWk9nxOTcZCMvZAxH9oZA6lBdZBl3RlgHgZCB1c8ddGN9KZC4gHhXrQ6rfZCVLXMQEl5IoAwfKp4wZDZD'; // Replace with your actual Facebook access token
+  const userProfilePicture = `https://graph.facebook.com/me/picture?access_token=${accessToken}`;
 
   const platforms = ["Facebook", "Twitter", "Instagram", "LinkedIn"];
   const textIdeas = [
@@ -36,23 +43,76 @@ const PostScheduler = () => {
     setShowConfirmation(true);
   };
 
-  const confirmSchedule = () => {
-    // Here you would typically send the data to an API or handle it as needed
-    console.log("Post Scheduled:", {
-      title: postTitle,
-      date: selectedDate,
-      time: selectedTime,
-      platform: selectedPlatform,
-      content: postContent,
-      textIdea,
-      mediaFile,
-      tags: tags.split(",").map((tag) => tag.trim()),
-      timeZone,
-      recurring,
-      frequency,
-    });
-    setShowConfirmation(false);
-    alert("Post scheduled successfully!");
+  // const confirmSchedule = () => {
+  //   // Here you would typically send the data to an API or handle it as needed
+  //   console.log("Post Scheduled:", {
+  //     title: postTitle,
+  //     date: selectedDate,
+  //     time: selectedTime,
+  //     platform: selectedPlatform,
+  //     content: postContent,
+  //     textIdea,
+  //     mediaFile,
+  //     tags: tags.split(",").map((tag) => tag.trim()),
+  //     timeZone,
+  //     recurring,
+  //     frequency,
+  //   });
+  //   setShowConfirmation(false);
+  //   alert("Post scheduled successfully!");
+  // };
+  const confirmSchedule = async (e) => {
+    e.preventDefault();
+    setError(null);
+    setSuccess(null);
+
+    if (!postContent.trim() && !imageurl.trim()) {
+      setError('Post must contain either a message or an image.');
+      return;
+    }
+
+    try {
+      let postData;
+      let apiUrl;
+
+      if (imageurl.trim()) {
+        // Post with an image
+        apiUrl = `https://graph.facebook.com/v22.0/591873497331588/photos?access_token=${accessToken}`;
+        postData = {
+          url: imageurl,
+          caption: postContent,
+        };
+      } else {
+        // Post only text
+        apiUrl = `https://graph.facebook.com/v22.0/591873497331588/feed?access_token=${accessToken}`;
+        postData = {
+          message: postContent,
+        };
+      }
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccess('Post published successfully!');
+        setShowConfirmation(false);
+        setPostContent('');
+        setimageurl('');
+        setCharCount(0);
+        console.log('Successful');
+      } else {
+        throw new Error(data.error?.message || 'Failed to post.');
+      }
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -116,15 +176,28 @@ const PostScheduler = () => {
             </select>
           </label>
 
-          <label style={{ display: "block", marginBottom: "16px" }}>
-            Upload Media (Image/Video):
+          <div className="flex flex-col gap-2">
+          <input
+            type="text"
+            placeholder="Image URL (Optional)"
+            value={imageurl}
+            onChange={(e) => setimageurl(e.target.value)}
+          />
+
+          <div className="relative border p-3 rounded-lg flex items-center gap-2 cursor-pointer">
+            <label htmlFor="file-upload" className="cursor-pointer">
+              Upload Image (Optional)
+            </label>
             <input
+              id="file-upload"
               type="file"
-              onChange={(e) => setMediaFile(e.target.files[0])}
-              style={{ width: "100%", padding: "8px", marginTop: "8px" }}
-              accept="image/*, video/*"
+              accept="image/*"
+              className="hidden"
+              onChange={setMediaFile}
+              disabled={!!imageurl} // Disable if an image URL is provided
             />
-          </label>
+          </div>
+        </div>
 
           <label style={{ display: "block", marginBottom: "16px" }}>
             Tags (comma-separated):
