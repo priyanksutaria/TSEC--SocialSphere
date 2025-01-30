@@ -1,0 +1,54 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url(../assets/images/Hero1.jpg); /* Light blue background */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  min-height: 700px;
+}
+
+.auth-card {
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* White background for the card */
+}
+
+.auth-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #1976d2; /* Blue color for the title */
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-button {
+  margin-top: 20px;
+  background-color: #1976d2; /* Primary color for the button */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.auth-button:hover {
+  background-color: #1565c0; /* Darker blue on hover */
+}
+
+.toggle-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #1976d2;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.toggle-link:hover {
+  color: #0d47a1; /* Darker blue on hover */
+}
