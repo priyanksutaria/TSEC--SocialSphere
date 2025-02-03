@@ -22,7 +22,7 @@ const PostScheduler = () => {
     Array.from({ length: 9 }, (_, i) => `${i + 1}:00 PM`)
   );
 
-  const accessToken = 'EAAM9zMmQC2kBO20lO9YQgdRBZCBcS5fkAsHK8xRQKNayHd3Hsn7iqh9ZA9p21bLrgdgyeB5FawHd7vcdnrhhSiRFhPiXuKaJ7e9XQBIdaijF4w04s7J77TOml9JgevkfJfNcU3hpOQZBJy9ZBf7nXWk9nxOTcZCMvZAxH9oZA6lBdZBl3RlgHgZCB1c8ddGN9KZC4gHhXrQ6rfZCVLXMQEl5IoAwfKp4wZDZD'; // Replace with your actual Facebook access token
+  const accessToken = ''; // Replace with your actual Facebook access token
   const userProfilePicture = `https://graph.facebook.com/me/picture?access_token=${accessToken}`;
 
   const platforms = ["Facebook", "Twitter", "Instagram", "LinkedIn"];
@@ -77,14 +77,14 @@ const PostScheduler = () => {
 
       if (imageurl.trim()) {
         // Post with an image
-        apiUrl = `https://graph.facebook.com/v22.0/591873497331588/photos?access_token=${accessToken}`;
+        apiUrl = `https://graph.facebook.com/v22.0//photos?access_token=${accessToken}`;
         postData = {
           url: imageurl,
           caption: postContent,
         };
       } else {
         // Post only text
-        apiUrl = `https://graph.facebook.com/v22.0/591873497331588/feed?access_token=${accessToken}`;
+        apiUrl = `https://graph.facebook.com/v22.0//feed?access_token=${accessToken}`;
         postData = {
           message: postContent,
         };
