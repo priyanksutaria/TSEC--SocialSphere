@@ -6,8 +6,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ✅ Use OAuth 2.0 User Context instead of Bearer Token
-const clientId = 'eDJHU2ZvNGJQV3hwamxCSC1vdXc6MTpjaQ';
-const clientSecret = 'fiXR53SXlcqLq0mBSrDBl5gDDL83Zx0uvQYsKAuDqh4ixxUgpK';
+const clientId = '';
+const clientSecret = '';
 const callbackUrl = 'http://localhost:5000';
 
 // Initialize Twitter API client
