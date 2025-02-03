@@ -20,8 +20,8 @@ const LinkedInPostCreator = () => {
       caption: postMessage,
       title: 'New Post',
       type: 'TEXT',
-      brand_id: 'cm6icuadl0735ygpg7p8g0vh9',
-      workspace_id: 'cm6icts6y072zygpgebgiuk2u'
+      brand_id: '',
+      workspace_id: ''
     };
 
     try {
@@ -29,7 +29,7 @@ const LinkedInPostCreator = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtNmljdG05czA3Mnh5Z3BnMjBmOG04ZXEiLCJlbWFpbCI6InZhbnNobTI3MDNAZ21haWwuY29tIiwibmFtZSI6IlZhbnNoIiwiaWF0IjoxNzM4MTgyMzUzLCJleHAiOjE3NDA3NzQzNTN9.2AD2BWc5qUuOoXKjyWzhubW3uSLoJRYliTpERMiKW1g`
+          'Authorization': ``
         },
         body: JSON.stringify(postData)
       });
