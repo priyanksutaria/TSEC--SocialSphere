@@ -6,19 +6,19 @@ const FacebookFeed = () => {
   const [feedData, setFeedData] = useState(null);
   const [error, setError] = useState(null);
 
-  const accessToken = 'EAAM9zMmQC2kBOzmr1BCVAYIDcKenhgbNATeGPfJ8c29AHYOD08c7APC6kWEotkRBC6KZCG4WZAy41ejFWRDUoDHOlo8kj9Pbsv0dKciuQSHe5l1z2DxFwruFPl26AsFeBSrtZA4IoileIvSA9EcI8Y16iaLfLmeVRNysPRvQRfmZCg9cijYKLAJYAw8smltH4nl6G4jzDFruHruTAENNRhzLuAZDZD'; // Replace with your actual Facebook access token
+  const accessToken = ''; // Replace with your actual Facebook access token
 
   useEffect(() => {
     const fetchFacebookData = async () => {
       try {
-        const userResponse = await fetch(`https://graph.facebook.com/v19.0/591873497331588?fields=id,name&access_token=${accessToken}`);
+        const userResponse = await fetch(`https://graph.facebook.com/v19.0/?fields=id,name&access_token=${accessToken}`);
         if (!userResponse.ok) {
           throw new Error(`Error fetching user data: ${userResponse.status} ${userResponse.statusText}`);
         }
         const userData = await userResponse.json();
         setUserData(userData);
 
-        const feedResponse = await fetch(`https://graph.facebook.com/v19.0/591873497331588/feed?fields=id,message,created_time,full_picture,reactions.summary(true)&access_token=${accessToken}`);
+        const feedResponse = await fetch(`https://graph.facebook.com/v19.0//feed?fields=id,message,created_time,full_picture,reactions.summary(true)&access_token=${accessToken}`);
         if (!feedResponse.ok) {
           throw new Error(`Error fetching feed data: ${feedResponse.status} ${feedResponse.statusText}`);
         }
