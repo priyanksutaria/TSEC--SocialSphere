@@ -7,7 +7,7 @@ const FacebookPostCreator = () => {
   const [success, setSuccess] = useState(null);
   const [charCount, setCharCount] = useState(0);
 
-  const accessToken = 'EAAM9zMmQC2kBO20lO9YQgdRBZCBcS5fkAsHK8xRQKNayHd3Hsn7iqh9ZA9p21bLrgdgyeB5FawHd7vcdnrhhSiRFhPiXuKaJ7e9XQBIdaijF4w04s7J77TOml9JgevkfJfNcU3hpOQZBJy9ZBf7nXWk9nxOTcZCMvZAxH9oZA6lBdZBl3RlgHgZCB1c8ddGN9KZC4gHhXrQ6rfZCVLXMQEl5IoAwfKp4wZDZD'; // Replace with your actual Facebook access token
+  const accessToken = ''; // Replace with your actual Facebook access token
   const userProfilePicture = `https://graph.facebook.com/me/picture?access_token=${accessToken}`;
 
   const handlePostSubmit = async (e) => {
