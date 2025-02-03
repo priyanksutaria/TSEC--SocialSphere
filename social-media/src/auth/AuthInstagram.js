@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const INSTAGRAM_CLIENT_ID = "604804838827231";
-const INSTAGRAM_CLIENT_SECRET = "5e363d12f8c94be262d20069add385e9";
+const INSTAGRAM_CLIENT_ID = "";
+const INSTAGRAM_CLIENT_SECRET = "";
 const INSTAGRAM_REDIRECT_URI = "http://localhost:3000/auth/instagram"; // Change for production
 
 const AuthInstagram = () => {
