@@ -7,7 +7,7 @@ const InstagramConnect = () => {
 
   // Replace these with your actual values
   const igUserId = '17841472108405468'; // Instagram Business or Creator account ID
-  const accessToken = 'IGAAImERmTpN9BZAE9UNW9zZAWdYZATgwZAHJyVDF5d0Y4ZA2pZARWp0OHhJdDZAIaW4ycWlON3lpNDVnM2NUQ1NyQW9qanNRMno3ZAGN1RkRwYmFOazI5VVBjWVNUa2JJby1YX3ZAyZA04zX0xTTmN1RTlsTnEtOUZAleU9ueVZAHU3dZAd2Y0MAZDZD';
+  const accessToken = 'EAAM9zMmQC2kBO1BDQtEa31r2J9mJFTdlKUGUjuMPI6OS1lrTD9vrk2gky4vavs07sPafJRZAbi5rFzHz3FOqFKUKhlFfk3PviGLsUWdV7q00vJdjc6tXE6JOOToHwz7UPXNDThZAzi9hxr79InZBViBmJILbQIaf9Ht7rPO2Wn54sfeJXhsDnH757JYuKn6n6QsX09BS50JAtvDm8YtN2huL6QZD';
   const imageUrl = 'https://picsum.photos/200/300'; // URL of the image to post
   const caption = 'Hello, Instagram!'; // Caption for the post
 

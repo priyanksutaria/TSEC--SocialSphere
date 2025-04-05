@@ -1,0 +1,14 @@
+fastapi
+pydantic
+transformers
+sentence-transformers
+torch
+diffusers
+Pillow
+flask
+flask-cors
+ollama
+joblib
+requests
+textblob
+numpy

@@ -8,7 +8,7 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-ACCESS_TOKEN = ""
+ACCESS_TOKEN = "IGAAImERmTpN9BZAE9UNW9zZAWdYZATgwZAHJyVDF5d0Y4ZA2pZARWp0OHhJdDZAIaW4ycWlON3lpNDVnM2NUQ1NyQW9qanNRMno3ZAGN1RkRwYmFOazI5VVBjWVNUa2JJby1YX3ZAyZA04zX0xTTmN1RTlsTnEtOUZAleU9ueVZAHU3dZAd2Y0MAZDZD"
 
 @app.route('/profile', methods=['GET'])
 def fetch_user_profile():

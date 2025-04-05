@@ -6,7 +6,7 @@ const FacebookFeed = () => {
   const [feedData, setFeedData] = useState(null);
   const [error, setError] = useState(null);
 
-  const accessToken = 'EAAM9zMmQC2kBOyqyguIrQ527ZCUwbskjBzyaEmU067VLTesZCLDCqbOUlZAIVNfpqkNDrX0tskZCvRlNM3sbEhwVjZBZBEepdwL6lXqT5tiPEZCkVEUAYaIzqXAuhyDpyddZCOZABPFJ4jK0akdm1FriB8vq9UTZBVbQRq6crkaFC2tf7ZCl2pdX57L11cVv4ZCyJ0hYAYcaPT7Xdq8sSqekCWZACt5B7'; // Replace with your actual Facebook access token
+  const accessToken = 'EAAM9zMmQC2kBOwVKTLaixp15RYIytiBT09ilkrPZAGpcReADNBvR3sXppX4aqHKUi5QLzRHjSCYCATfew6SSQHYJZA5LeOW7lSVNk1ZAqZBevkO2a7VkrK5SCmPTD6NaH5hvYaJ9EecSagwu7D2IntYtxVgm9ZBWgnZCUzwB2OrBuWGNF31mCPiqTpSeYBoHxpR44n2ZBoS0fEqAkw4zRSb4h0I'; // Replace with your actual Facebook access token
 
   useEffect(() => {
     const fetchFacebookData = async () => {
