@@ -6,12 +6,12 @@ const LinkedInFeed = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const accessToken = '';
+  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtNmljdG05czA3Mnh5Z3BnMjBmOG04ZXEiLCJlbWFpbCI6InZhbnNobTI3MDNAZ21haWwuY29tIiwibmFtZSI6IlZhbnNoIiwiaWF0IjoxNzM4MTgyMzUzLCJleHAiOjE3NDA3NzQzNTN9.2AD2BWc5qUuOoXKjyWzhubW3uSLoJRYliTpERMiKW1g';
 
   useEffect(() => {
     const fetchLinkedInFeed = async () => {
       try {
-        const response = await fetch('https://api.gosocialx.com/api/v1', {
+        const response = await fetch('https://api.gosocialx.com/api/v1/social/linkedin/feed', {
           method: 'GET',
           headers: {
             'Authorization': accessToken,

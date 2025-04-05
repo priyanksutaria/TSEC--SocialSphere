@@ -9,10 +9,10 @@ import twitterLogo from "../assets/images/twitter.png";
 import instagramLogo from "../assets/images/instagram24.png";
 import linkedinLogo from "../assets/images/linkedin.png";
 
-const INSTAGRAM_CLIENT_ID = "";
+const INSTAGRAM_CLIENT_ID = "912374694415209";
 const INSTAGRAM_REDIRECT_URI = "http://localhost:3000/dashboard"; // Change this in production
 
-const FACEBOOK_APP_ID = "";
+const FACEBOOK_APP_ID = "912374694415209";
 const FACEBOOK_REDIRECT_URI = "http://localhost:3000/dashboard/dbfacebook"; // Change in production
 
 const Navbar = () => {

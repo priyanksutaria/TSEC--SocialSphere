@@ -20,8 +20,8 @@ const LinkedInPostCreator = () => {
       caption: postMessage,
       title: 'New Post',
       type: 'TEXT',
-      brand_id: '',
-      workspace_id: ''
+      brand_id: 'cm6icuadl0735ygpg7p8g0vh9',
+      workspace_id: 'cm6icts6y072zygpgebgiuk2u'
     };
 
     try {

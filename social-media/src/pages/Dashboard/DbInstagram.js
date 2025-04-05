@@ -6,7 +6,7 @@ const InstagramFeed = () => {
   const [mediaData, setMediaData] = useState([]);
   const [error, setError] = useState(null);
 
-  const ACCESS_TOKEN = ""; // Replace with your Instagram access token
+  const ACCESS_TOKEN = "IGAAImERmTpN9BZAE9UNW9zZAWdYZATgwZAHJyVDF5d0Y4ZA2pZARWp0OHhJdDZAIaW4ycWlON3lpNDVnM2NUQ1NyQW9qanNRMno3ZAGN1RkRwYmFOazI5VVBjWVNUa2JJby1YX3ZAyZA04zX0xTTmN1RTlsTnEtOUZAleU9ueVZAHU3dZAd2Y0MAZDZD"; // Replace with your Instagram access token
 
   useEffect(() => {
     const fetchInstagramData = async () => {
